@@ -1,0 +1,14 @@
+// StaticDemo.java
+public class StaticDemo {
+    static int count = 0;
+
+    static void increment() {
+        count++;
+    }
+
+    public static void main(String[] args) {
+        StaticDemo.increment();
+        StaticDemo.increment();
+        System.out.println("Count: " + StaticDemo.count);
+    }
+}

@@ -1,0 +1,34 @@
+public class ThreadDemo {
+    public static void main(String[] args) throws InterruptedException {
+        // 1. Creating and Running Threads
+        System.out.println("\n--- Multiple Threads Demo ---");
+        MyThread t1 = new MyThread("Thread A");
+        MyThread t2 = new MyThread("Thread B");
+        t1.start();
+        t2.start();
+        t1.join();
+        t2.join();
+
+        // 2. Synchronization
+        System.out.println("\n--- Thread Synchronization Demo ---");
+        Counter counter = new Counter();
+        SyncThread s1 = new SyncThread(counter);
+        SyncThread s2 = new SyncThread(counter);
+        s1.start();
+        s2.start();
+        s1.join();
+        s2.join();
+        System.out.println("Final Counter Value: " + counter.getCount());
+
+        // 3. Inter-thread Communication
+        System.out.println("\n--- Inter-thread Communication Demo ---");
+        Message msg = new Message();
+
+        Thread producer = new Thread(() -> msg.produce());
+        Thread consumer = new Thread(() -> msg.consume());
+
+        consumer.start(); // Start consumer first (to wait)
+        Thread.sleep(500); // Delay to ensure consumer is waiting
+        producer.start(); // Then start producer
+    }
+}

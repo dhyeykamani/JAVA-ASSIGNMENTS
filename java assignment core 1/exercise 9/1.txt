@@ -1,0 +1,61 @@
+// Parent class
+class Vehicle {
+    String brand;
+
+    // Constructor
+    Vehicle(String brand) {
+        this.brand = brand;
+        System.out.println("Vehicle constructor called for brand: " + brand);
+    }
+
+    // Method to be overridden
+    void start() {
+        System.out.println("Vehicle is starting...");
+    }
+
+    // Method to be called using super
+    void displayInfo() {
+        System.out.println("This is a vehicle of brand: " + brand);
+    }
+}
+
+// Child class
+class Car extends Vehicle {
+    String model;
+
+    // Child constructor using super to call parent constructor
+    Car(String brand, String model) {
+        super(brand); // Calling parent constructor
+        this.model = model;
+        System.out.println("Car constructor called for model: " + model);
+    }
+
+    // Overriding method for runtime polymorphism
+    @Override
+    void start() {
+        super.start(); // Call parent method
+        System.out.println("Car is starting with keyless ignition...");
+    }
+
+    // Display car info
+    void displayDetails() {
+        super.displayInfo(); // Call parent method
+        System.out.println("Model: " + model);
+    }
+}
+
+// Main class to run program
+public class InheritanceExample {
+    public static void main(String[] args) {
+        // Parent class reference to child object (runtime polymorphism)
+        Vehicle myVehicle = new Car("Toyota", "Camry");
+        myVehicle.start(); // Will call the overridden method in Car
+
+        System.out.println();
+
+        // If we want to access child-specific methods, use child class reference
+        Car myCar = new Car("Honda", "Civic");
+        myCar.displayDetails(); // Shows brand and model
+    }
+}
+

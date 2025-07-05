@@ -1,0 +1,27 @@
+class Message {
+    private boolean ready = false;
+
+    public synchronized void produce() {
+        System.out.println("Producer thread running...");
+        try {
+            Thread.sleep(1000);
+            ready = true;
+            System.out.println("Message produced.");
+            notify(); // Notify waiting thread
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public synchronized void consume() {
+        try {
+            while (!ready) {
+                System.out.println("Waiting for message...");
+                wait(); // Wait until notified
+            }
+            System.out.println("Message consumed.");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}

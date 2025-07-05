@@ -1,0 +1,47 @@
+import java.io.*;
+
+// Serializable class
+class Student implements Serializable {
+    int id;
+    String name;
+
+    public Student(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public void display() {
+        System.out.println("Student ID: " + id + ", Name: " + name);
+    }
+}
+
+public class SerializationDemo {
+    public static void main(String[] args) {
+        Student s1 = new Student(101, "Dhyey");
+
+        // Serialization
+        try {
+            FileOutputStream fileOut = new FileOutputStream("student.ser");
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(s1);
+            out.close();
+            fileOut.close();
+            System.out.println("Object has been serialized.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Deserialization
+        try {
+            FileInputStream fileIn = new FileInputStream("student.ser");
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            Student s2 = (Student) in.readObject();
+            in.close();
+            fileIn.close();
+            System.out.println("Object has been deserialized:");
+            s2.display();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+}

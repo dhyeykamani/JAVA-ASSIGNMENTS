@@ -1,0 +1,44 @@
+// Custom exception class
+class InvalidAgeException extends Exception {
+    public InvalidAgeException(String message) {
+        super(message);
+    }
+}
+
+public class ExceptionHandlingDemo {
+    public static void main(String[] args) {
+        try {
+            // ArithmeticException
+            int result = 10 / 0;
+            System.out.println("Result: " + result);
+
+            // NullPointerException
+            String str = null;
+            System.out.println(str.length());
+
+            // Custom exception
+            checkAge(15);
+
+        } catch (ArithmeticException e) {
+            System.out.println("Caught ArithmeticException: " + e.getMessage());
+
+        } catch (NullPointerException e) {
+            System.out.println("Caught NullPointerException: " + e.getMessage());
+
+        } catch (InvalidAgeException e) {
+            System.out.println("Caught Custom Exception: " + e.getMessage());
+
+        } finally {
+            System.out.println("Finally block always runs.");
+        }
+    }
+
+    // Method to throw custom exception
+    static void checkAge(int age) throws InvalidAgeException {
+        if (age < 18) {
+            throw new InvalidAgeException("Age must be at least 18 to register.");
+        } else {
+            System.out.println("Age is valid.");
+        }
+    }
+}

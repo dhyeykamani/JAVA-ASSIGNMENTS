@@ -1,0 +1,20 @@
+import java.util.*;
+
+public class RemoveDuplicates {
+    public static void main(String[] args) {
+        List<String> names = Arrays.asList("Dhyey", "Amit", "Dhyey", "Ravi", "Amit");
+
+        System.out.println("Original list with duplicates:");
+        for (String name : names) {
+            System.out.println(name);
+        }
+
+        // Use HashSet to remove duplicates
+        Set<String> uniqueNames = new HashSet<>(names);
+
+        System.out.println("\nList after removing duplicates:");
+        for (String name : uniqueNames) {
+            System.out.println(name);
+        }
+    }
+}

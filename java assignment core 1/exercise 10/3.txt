@@ -1,0 +1,11 @@
+// Payment interface
+interface PaymentGateway {
+    void processPayment(double amount);
+}
+
+// Class implementing payment
+class Paytm implements PaymentGateway {
+    public void processPayment(double amount) {
+        System.out.println("Payment of ₹" + amount + " processed via Paytm.");
+    }
+}

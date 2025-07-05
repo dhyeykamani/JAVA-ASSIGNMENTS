@@ -1,0 +1,14 @@
+o Install JDK and set up environment variables.
+Download JDK from Oracle/OpenJDK website.
+
+
+Install JDK.
+
+
+Set Environment Variable:
+
+
+JAVA_HOME → Path to JDK
+
+
+Add JAVA_HOME/bin to PATH.

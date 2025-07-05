@@ -1,0 +1,16 @@
+// Abstract class
+abstract class Animal {
+    abstract void makeSound(); // abstract method
+
+    void sleep() { // concrete method
+        System.out.println("Animal is sleeping...");
+    }
+}
+
+// Subclass implementing abstract method
+class Dog extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("Dog barks: Woof Woof!");
+    }
+}

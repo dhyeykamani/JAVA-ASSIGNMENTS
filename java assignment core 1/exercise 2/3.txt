@@ -1,0 +1,15 @@
+// TypeCastingDemo.java
+public class TypeCastingDemo {
+    public static void main(String[] args) {
+        // Implicit Casting
+        int i = 100;
+        double d = i;
+        
+        // Explicit Casting
+        double x = 99.99;
+        int y = (int)x;
+        
+        System.out.println("Implicit Casting (int to double): " + d);
+        System.out.println("Explicit Casting (double to int): " + y);
+    }
+}

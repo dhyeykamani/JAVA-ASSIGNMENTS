@@ -1,0 +1,21 @@
+public class InterfaceAbstractDemo {
+    public static void main(String[] args) {
+        // Abstract class example
+        Animal dog = new Dog();
+        dog.makeSound();
+        dog.sleep();
+
+        System.out.println();
+
+        // Multiple interfaces
+        Bird b = new Bird();
+        b.fly();
+        b.swim();
+
+        System.out.println();
+
+        // Real-world payment gateway interface
+        PaymentGateway payment = new Paytm();
+        payment.processPayment(1500.00);
+    }
+}

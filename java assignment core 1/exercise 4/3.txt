@@ -1,0 +1,30 @@
+// EncapsulationDemo.java
+public class EncapsulationDemo {
+    private String name;
+    private int age;
+    
+    public String getName() {
+        return name;
+    }
+    
+    public void setName(String n) {
+        name = n;
+    }
+    
+    public int getAge() {
+        return age;
+    }
+    
+    public void setAge(int a) {
+        age = a;
+    }
+    
+    public static void main(String[] args) {
+        EncapsulationDemo e = new EncapsulationDemo();
+        e.setName("Alice");
+        e.setAge(22);
+        
+        System.out.println("Name: " + e.getName());
+        System.out.println("Age: " + e.getAge());
+    }
+}
